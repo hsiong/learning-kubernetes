@@ -95,7 +95,71 @@ Kubernetes provides you with:
 
 + **Automated rollouts and rollbacks**
 
-  
+  You can describe the desired state for your deployed containers using Kubernetes, and it can change the actual state to the desired state at a controlled rate. For example, you can automate Kubernetes to create new containers for your deployment, remove existing containers and adopt all their resources to the new container.
+
++ **Automatic bin packing**
+
+  You provide Kubernetes with a cluster of nodes that it can use to run containerized tasks. You tell Kubernetes how much CPU and memory (RAM) each container needs. Kubernetes can fit containers onto your nodes to make the best use of your resources.
+
++ **Self-healing**
+
+  Kubernetes restarts containers that fail, replaces containers, kills containers that don't respond to your user-defined health check, and doesn't advertise them to clients until they are ready to serve.
+
++ **Secret and configuration management**
+
+  Kubernetes lets you store and manage sensitive information, such as passwords, OAuth tokens, and SSH keys. You can deploy and update secrets and application configuration without rebuilding your container images, and without exposing secrets in your stack configuration.
+
+### What Kubernetes is not
+
+Kubernetes is not a traditional, all-inclusive PaaS (Platform as a Service) system. Since Kubernetes operates at the container level rather than at the hardware level, it provides some generally applicable features common to PaaS offerings, such as deployment, scaling, load balancing, and lets users integrate their logging, monitoring, and alerting solutions. However, Kubernetes is not monolithic, and these default solutions are optional and pluggable. `Kubernetes provides the building blocks for building developer platforms, but preserves user choice and flexibility where it is important.`
+
+Kubernetes:
+
+- Does not limit the types of applications supported. 
+
+  Kubernetes aims to support an extremely diverse variety of workloads, including stateless, stateful, and data-processing workloads. If an application can run in a container, it should run great on Kubernetes.	
+
+  ✅ 
+
++ Does not provide application-level services.
+
+  Components (such as middleware (for example, message buses), data-processing frameworks (for example, Spark), databases (for example, MySQL), caches, nor cluster storage systems (for example, Ceph) as built-in services. ) can run on Kubernetes, and/or can be accessed by applications running on Kubernetes through portable mechanisms, such as the [Open Service Broker](https://openservicebrokerapi.org/).
+
+  ✅
+
++ Additionally, Kubernetes is not a mere orchestration system. 
+
+  In fact, it eliminates the need for orchestration. The technical definition of orchestration is execution of a defined workflow: first do A, then B, then C. In contrast, Kubernetes comprises a set of independent, composable control processes that continuously drive the current state towards the provided desired state. It shouldn't matter how you get from A to C. Centralized control is also not required. This results in a system that is easier to use and more powerful, robust, resilient, and extensible.
+
+- Does not deploy source code and does not build your application. 
+
+  Continuous Integration, Delivery, and Deployment (CI/CD) workflows are determined by organization cultures and preferences as well as technical requirements.
+
+  => CI/CD workflows
+
+- Does not dictate logging, monitoring, or alerting solutions. 
+
+  It provides some integrations as proof of concept, and mechanisms to collect and export metrics.
+
+  => [prometheus](https://github.com/prometheus/prometheus)
+
+- Does not provide nor mandate a configuration language/system (for example, Jsonnet). 
+
+  It provides a declarative API that may be targeted by arbitrary forms of declarative specifications.
+
+  => ❎ How to do this ? 
+
+- Does not provide nor adopt any comprehensive machine configuration, maintenance, management, or self-healing systems.
+
+  =>  ❎ How to do this ? 
+
+
+
+
+
+
+
+
 
 
 
