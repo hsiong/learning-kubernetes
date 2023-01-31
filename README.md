@@ -153,13 +153,19 @@ Kubernetes:
 
   =>  ❎ How to do this ? 
 
++ Additionally, Kubernetes is not a mere orchestration system. In fact, it eliminates the need for orchestration. The technical definition of orchestration is execution of a defined workflow: first do A, then B, then C. In contrast, Kubernetes comprises a set of independent, composable control processes that continuously drive the current state towards the provided desired state. It shouldn't matter how you get from A to C. Centralized control is also not required. This results in a system that is easier to use and more powerful, robust, resilient, and extensible.
+
+## Kubernetes Components
+
+When you deploy Kubernetes, you get a cluster.
 
 
 
+A Kubernetes cluster consists of a set of worker machines, called [nodes](https://kubernetes.io/docs/concepts/architecture/nodes/), that run containerized applications. Every cluster has at least one worker node.
 
 
 
-
+The worker node(s) host the [Pods](https://kubernetes.io/docs/concepts/workloads/pods/) that are the components of the application workload. The [control plane](https://kubernetes.io/docs/reference/glossary/?all=true#term-control-plane) manages the worker nodes and the Pods in the cluster. In production environments, the control plane usually runs across multiple computers and a cluster usually runs multiple nodes, providing fault-tolerance and high availability.
 
 
 
@@ -191,3 +197,4 @@ Look up common tasks and how to perform them using a short sequence of steps.
 + [kubernetes docs](https://kubernetes.io/docs/home/)
 + [Kubernetes 基础教程](https://lib.jimmysong.io/kubernetes-handbook/)
 + [Kubernetes 指南](https://feisky.gitbooks.io/kubernetes/content/)
++ [Kubernetes(k8s)手册](https://www.w3cschool.cn/kubernetes/)
