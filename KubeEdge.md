@@ -1,4 +1,17 @@
-https://www.cnblogs.com/kubesphere/p/15267224.html
+# Deploying using Keadm
 
-https://www.google.com/search?q=k8s+%E8%BE%B9%E7%AB%AF%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5&newwindow=1&sxsrf=AJOqlzWTG_O7gcGltS_RnmPf8DZQZo75ZA%3A1674026771979&ei=E5_HY726O4-g1e8P1baywAc&ved=0ahUKEwj9j9rYy9D8AhUPUPUHHVWbDHgQ4dUDCA8&uact=5&oq=k8s+%E8%BE%B9%E7%AB%AF%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIFCCEQoAEyBQghEKABMgUIIRCgAToKCAAQRxDWBBCwAzoECCMQJzoECAAQQzoFCC4QgAQ6EQguEIAEELEDEIMBEMcBENEDOgsILhCxAxDHARCvAToOCC4QgAQQsQMQxwEQ0QM6CwguEIAEEMcBEK8BOgUIABCABDoICAAQgAQQywE6BQgAEIYDOgUIABCiBDoJCCEQoAEQChAqOgcIIRCgARAKSgQIQRgASgQIRhgAUPoFWOYxYNsyaANwAXgAgAGfAogBuBySAQYwLjIzLjKYAQCgAQHIAQnAAQE&sclient=gws-wiz-serp
+## Install keadm
+```
+docker run --rm kubeedge/installation-package:v1.12.1 cat /usr/local/bin/keadm > /usr/local/bin/keadm && chmod +x /usr/local/bin/keadm
+```
+
+## Setup Cloud Side (KubeEdge Master Node)
+
+By default ports `10000` and `10002` in your cloudcore needs to be accessible for your edge nodes.
+
+> **IMPORTANT NOTE:**
+>
+> 1. At least one of kubeconfig or master must be configured correctly, so that it can be used to verify the version and other info of the k8s cluster.
+> 2. Please make sure edge node can connect cloud node using local IP of cloud node, or you need to specify public IP of cloud node with `--advertise-address` flag.
+> 3. `--advertise-address` is the address exposed by the cloud side (will be added to the SANs of the CloudCore certificate), the default value is the local IP.
 
